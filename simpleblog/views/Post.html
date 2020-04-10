@@ -1,0 +1,29 @@
+{{template "head"}}
+
+<div>
+    <h2>{{.Title}}</h2>
+</div>
+<div>
+    <h4>{{.Body}}</h4>
+</div>
+
+<tbody>
+    {{range .Comments}}
+    <div>
+        <tr>
+            <th scope="row">{{.Id}}</th>
+            <td>{{.Body}}</td>
+            <td><a href="{{.PostId}}/comment/delete/{{.Id}}">delete</a></td>
+        </tr>
+    </div>
+    {{end}}
+</tbody>
+
+<form method="POST" action="{{.Id}}/comment/create">
+    <div>
+        <label for="comment">comment</label>
+        <input type="text" id="body" name="body">
+        <button type="submit">create commit</button>
+    </div>
+</form>
+<p><a href="/posts/"><button>go posts</button></a></p>

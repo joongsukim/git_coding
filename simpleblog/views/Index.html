@@ -1,0 +1,27 @@
+{{template "head"}}
+
+<table class="table" width="800">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+        </tr>
+    </thead>
+    <div id=wrapper>
+    <tbody>
+        {{range .}}
+            <tr align="center">
+                <th scope="row">{{.Id}}</th>
+                <td>{{.Title}}</td>
+                <td><time>{{.CreatedAt}}</time></td>
+                <td><time>{{.UpdatedAt}}</time></td>
+                <td><a href="{{.Id}}">Show</a></td>
+                <td><a href="{{.Id}}/delete">delete</a></td>
+            </tr>
+        {{end}}
+    </tbody>
+    </div>
+    <p><a href="create"><button>New Post</button></a></p>
+</table>
